@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="palm.png">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>7 PALMS - Sign UP</title>
+</head>
+
+<body style="background-image:url('img2.jpeg') ;background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+    <div class="body">
+        <div class="header">
+            <div id="logo">
+                <h1>7 palms 🌴</h1>
+            </div>
+        </div>  
+    </div>
+    <div class="background-login" style="width: 25%;">
+        <h1>Sign Up</h1>
+        <div class="login" style="width: 70%;">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="Enter your First Name">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Enter your Last Name">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your Email">
+            <label for="username">User Name</label>
+            <input type="text" id="username" placeholder="Enter your username">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your Password">
+            <label for="repeatPassword">Repeat Password</label>
+            <input type="password" id="repeatPassword" placeholder="Reenter your Password">
+            <div class="check">
+                <label for="showPassword">Show Password</label>
+                <input type="checkbox" id="showPassword" onchange="togglePassword()">
+            </div>
+            <div id="signUpError" style="color: red;"></div>
+            <button type="submit" onclick="return validateSignUp()">Submit</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>Welcome to 7 palms, where luxury meets serenity...</p>
+            </div>
+            <div class="footer-section mission">
+                <h2>Our Mission</h2>
+                <p>At 7 palms, our mission is simple: to provide guests with unparalleled luxury, comfort, and tranquility...</p>
+            </div>
+            <div class="footer-section exp">
+                <h2>Experience and Expertise</h2>
+                <p>With over [Number] years of experience in the hospitality industry, our team brings a wealth of knowledge and expertise to every aspect of villa management. <br>
+                 From property selection to guest services, we are committed to delivering excellence in every detail.</p>
+            </div>
+            <div class="footer-section CS">
+                <h2>Customer Service Philosophy</h2>
+                <p>At 7 palms, guest satisfaction is our top priority. From the moment you inquire about a villa to the day of your departure,<br>
+                     our dedicated team is here to ensure your stay is nothing short of extraordinary. We pride ourselves on personalized service, <br>
+                      attention to detail, and a commitment to exceeding your expectations.</p>
+            </div>
+            <div class="footer-section GIT">
+                <h2>Get in Touch</h2>
+                <p>With over 1000 years of experience in the hospitality industry, our team brings a wealth of knowledge and expertise to every aspect of villa management. <br>
+                 From property selection to guest services, we are committed to delivering excellence in every detail.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Get in Touch - Ready to experience the luxury of 7 palms villas? Contact us today to start planning your next unforgettable getaway.</p>
+        </div>
+    </footer>
+    <script>
+        function validateSignUp() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var repeatPassword = document.getElementById('repeatPassword').value;
+            var showPasswordChecked = document.getElementById('showPassword').checked;
+            var signUpError = document.getElementById('signUpError');
+            signUpError.textContent = '';
+
+            if (!firstName || !lastName || !email || !username || !password || !repeatPassword) {
+                signUpError.textContent = 'Please fill in all fields.';
+                return false;
+            }
+            if (password !== repeatPassword) {
+                signUpError.textContent = 'Passwords do not match.';
+                return false;
+            }
+            window.location.href = "home.html?success=1";
+            return false;
+        }
+        function togglePassword() {
+            var passwordInput = document.getElementById('password');
+            var showPasswordCheckbox = document.getElementById('showPassword');
+
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
